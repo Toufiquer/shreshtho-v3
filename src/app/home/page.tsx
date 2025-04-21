@@ -8,12 +8,14 @@
 
 import ContainerBox from '@/components/common/ContainerBox'
 import TopMenu from './components/TopMenu'
+import TopLogoSearchLogReg from './components/TopLogoSearchLogReg'
 
 const Page = () => {
-    return (
-        <ContainerBox>
-            <TopMenu />
-        </ContainerBox>
-    )
+  return (
+    <ContainerBox>
+      <TopMenu />
+      <TopLogoSearchLogReg />
+    </ContainerBox>
+  )
 }
 export default Page
