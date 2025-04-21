@@ -5,13 +5,13 @@ import { motion } from 'framer-motion'
 import { ShopData } from './SharedType'
 import UpdateStore from './UpdateStore'
 import DeleteStore from './DeleteStore'
+import { useStoreState } from './UpdateZustand'
 
 interface ViewStoreProps {
   shopData: ShopData[]
   onEdit: (shop: ShopData) => void
   isEditing: string | null
   onDelete: (id: string) => void
-  isLoading: boolean
 }
 
 const ViewStore: React.FC<ViewStoreProps> = ({
@@ -19,10 +19,9 @@ const ViewStore: React.FC<ViewStoreProps> = ({
   onEdit,
   isEditing,
   onDelete,
-  isLoading,
 }) => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
-
+  const { isLoading } = useStoreState()
   // Check for mobile view
   useEffect(() => {
     const handleResize = () => {

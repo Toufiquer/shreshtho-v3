@@ -33,23 +33,71 @@ export const initialData: ShopsData[] = [
 ]
 
 // Define the store state type
-interface ShopsStore {
+export interface ShopsStore {
   data: ShopsData[]
+  isError: boolean
   isLoading: boolean
+  isSuccess: boolean
+  error: string | null
   isEditing: string | null
-  setData: (data: ShopsData[]) => void
-  addData: (item: ShopsData) => void
-  updateData: (id: string, data: Partial<ShopsData>) => void
   deleteData: (id: string) => void
+  addData: (item: ShopsData) => void
+  setData: (data: ShopsData[]) => void
   setIsLoading: (status: boolean) => void
   setIsEditing: (id: string | null) => void
+  updateData: (id: string, data: Partial<ShopsData>) => void
 }
-
+export type QueryData = {
+  data: ShopData[]
+  setData: (data: ShopsData[]) => void
+  isLoading: boolean
+  error: string | null
+  isError: boolean
+  isSuccess: boolean
+}
+export type MutationDataStatus = {
+  isLoading: boolean
+  error: string | null
+  isError: boolean
+  isSuccess: boolean
+  isEditing: string | null
+  setIsEditing: (id: string | null) => void
+}
+export type MutationUpdateData = [
+  (id: string, data: Partial<ShopsData>) => void,
+  {
+    isLoading: boolean
+    error: string | null
+    isError: boolean
+    isSuccess: boolean
+  },
+]
+export type MutationDeleteData = [
+  (id: string) => void,
+  {
+    isLoading: boolean
+    error: string | null
+    isError: boolean
+    isSuccess: boolean
+  },
+]
+export type MutationCreateData = [
+  (data: ShopsData) => void,
+  {
+    isLoading: boolean
+    error: string | null
+    isError: boolean
+    isSuccess: boolean
+  },
+]
 // Create the store
 export const useShopsStore = create<ShopsStore>((set) => ({
   data: [],
-  isLoading: false,
+  error: '',
   isEditing: null,
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
 
   setData: (data) => set({ data }),
 
@@ -76,16 +124,23 @@ export const useShopsStore = create<ShopsStore>((set) => ({
 }))
 
 // Hooks for components to use
-export const useGetDataQuery = () => {
+export const useGetDataQuery = (): QueryData => {
   const data = useShopsStore((state) => state.data)
   const setData = useShopsStore((state) => state.setData)
-  return { data, setData, isLoading: false, isError: false, error: '' }
+  const isLoading = useShopsStore((state) => state.isLoading)
+  const isError = useShopsStore((state) => state.isError)
+  const isSuccess = useShopsStore((state) => state.isSuccess)
+  const error = useShopsStore((state) => state.error)
+  return { data, setData, isLoading, error, isError, isSuccess }
 }
 
-export const useCreateDataMutation = () => {
+export const useCreateDataMutation = (): MutationCreateData => {
   const addData = useShopsStore((state) => state.addData)
   const setIsLoading = useShopsStore((state) => state.setIsLoading)
-
+  const isLoading = useShopsStore((state) => state.isLoading)
+  const isError = useShopsStore((state) => state.isError)
+  const isSuccess = useShopsStore((state) => state.isSuccess)
+  const error = useShopsStore((state) => state.error)
   const addWithLoading = (data: ShopsData) => {
     setIsLoading(true)
     setTimeout(() => {
@@ -94,14 +149,17 @@ export const useCreateDataMutation = () => {
     }, 500)
   }
 
-  return [addWithLoading]
+  return [addWithLoading, { isLoading, error, isError, isSuccess }]
 }
 
-export const useUpdateDataMutation = () => {
+export const useUpdateDataMutation = (): MutationUpdateData => {
   const updateData = useShopsStore((state) => state.updateData)
   const setIsLoading = useShopsStore((state) => state.setIsLoading)
   const setIsEditing = useShopsStore((state) => state.setIsEditing)
-
+  const isLoading = useShopsStore((state) => state.isLoading)
+  const isError = useShopsStore((state) => state.isError)
+  const isSuccess = useShopsStore((state) => state.isSuccess)
+  const error = useShopsStore((state) => state.error)
   const updateWithLoading = (id: string, data: Partial<ShopsData>) => {
     setIsLoading(true)
     setTimeout(() => {
@@ -111,13 +169,16 @@ export const useUpdateDataMutation = () => {
     }, 500)
   }
 
-  return [updateWithLoading]
+  return [updateWithLoading, { isLoading, error, isError, isSuccess }]
 }
 
-export const useDeleteDataMutation = () => {
+export const useDeleteDataMutation = (): MutationDeleteData => {
   const deleteData = useShopsStore((state) => state.deleteData)
   const setIsLoading = useShopsStore((state) => state.setIsLoading)
-
+  const isLoading = useShopsStore((state) => state.isLoading)
+  const isError = useShopsStore((state) => state.isError)
+  const isSuccess = useShopsStore((state) => state.isSuccess)
+  const error = useShopsStore((state) => state.error)
   const deleteWithLoading = (id: string) => {
     setIsLoading(true)
     setTimeout(() => {
@@ -126,13 +187,15 @@ export const useDeleteDataMutation = () => {
     }, 500)
   }
 
-  return [deleteWithLoading]
+  return [deleteWithLoading, { isLoading, error, isError, isSuccess }]
 }
 
-export const useStoreState = () => {
+export const useStoreState = (): MutationDataStatus => {
   const isLoading = useShopsStore((state) => state.isLoading)
-  const isEditing = useShopsStore((state) => state.isEditing)
+  const isError = useShopsStore((state) => state.isError)
+  const isSuccess = useShopsStore((state) => state.isSuccess)
+  const error = useShopsStore((state) => state.error)
   const setIsEditing = useShopsStore((state) => state.setIsEditing)
-
-  return { isLoading, isEditing, setIsEditing }
+  const isEditing = useShopsStore((state) => state.isEditing)
+  return { isLoading, error, isError, isSuccess, isEditing, setIsEditing }
 }

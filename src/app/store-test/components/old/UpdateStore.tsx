@@ -16,7 +16,10 @@ const UpdateStore: React.FC<UpdateStoreProps> = ({
   onCancel,
   isLoading,
 }) => {
-  const [updateItem] = useUpdateDataMutation()
+  const [
+    updateItem,
+    { error, isError, isLoading: isLoadingUpdateData, isSuccess },
+  ] = useUpdateDataMutation()
   const [editValues, setEditValues] = useState<NewShop>({
     shopName: shop.shopName,
     address: shop.address,

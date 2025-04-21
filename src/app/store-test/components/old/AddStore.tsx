@@ -5,12 +5,9 @@ import { motion } from 'framer-motion'
 import { useCreateDataMutation } from './UpdateZustand'
 import { NewShop } from './SharedType'
 
-interface AddStoreProps {
-  isLoading: boolean
-}
-
-const AddStore: React.FC<AddStoreProps> = ({ isLoading }) => {
-  const [addData] = useCreateDataMutation()
+const AddStore = () => {
+  const [addData, { error, isError, isLoading: isLoadingAddData, isSuccess }] =
+    useCreateDataMutation()
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [newShop, setNewShop] = useState<NewShop>({
     shopName: '',
@@ -128,9 +125,9 @@ const AddStore: React.FC<AddStoreProps> = ({ isLoading }) => {
             whileTap={{ scale: 0.97 }}
             className="w-full cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center"
             onClick={handleAddShop}
-            disabled={isLoading || !newShop.shopName || !newShop.address}
+            disabled={isLoadingAddData || !newShop.shopName || !newShop.address}
           >
-            {isLoading ? (
+            {isLoadingAddData ? (
               <svg
                 className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
                 xmlns="http://www.w3.org/2000/svg"

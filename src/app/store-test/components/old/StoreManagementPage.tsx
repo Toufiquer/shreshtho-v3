@@ -15,7 +15,10 @@ import {
 const StoreManagementPage: React.FC = () => {
   // Get zustand store hooks
   const { data: shopData, setData } = useGetDataQuery()
-  const [deleteItem] = useDeleteDataMutation()
+  const [
+    deleteItem,
+    { error, isError, isLoading: isLoadingDeleteData, isSuccess },
+  ] = useDeleteDataMutation()
   const { isLoading, isEditing, setIsEditing } = useStoreState()
 
   // Container animation variants
@@ -127,11 +130,10 @@ const StoreManagementPage: React.FC = () => {
         onEdit={handleEditShop}
         isEditing={isEditing}
         onDelete={deleteItem}
-        isLoading={isLoading}
       />
 
       {/* Add New Store Section */}
-      <AddStore isLoading={isLoading} />
+      <AddStore />
     </motion.div>
   )
 }
