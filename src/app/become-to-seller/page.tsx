@@ -66,7 +66,7 @@ const SignUpSeller: React.FC = () => {
 
           <motion.div variants={itemVariants} className="mt-6">
             <Link
-              href="/previous-page"
+              href="/"
               className="flex items-center text-red-600 hover:text-red-800"
             >
               <svg
