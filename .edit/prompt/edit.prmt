@@ -1,0 +1,9 @@
+
+
+Please design a Next.js component using TypeScript and Framer Motion. This component will be a **StoreManagement** for a website. I want it to have a **modern and clean** eye-catching view, fully responsive for mobile, tablet, and desktop.
+
+Design the Next.js component based on the visual style and layout presented in the image I will provide below. Pay attention to the color palette, typography, and spacing in the image.
+
+Incorporate subtle **fade-in entrance animations** for the main elements using Framer Motion when the component mounts. Also, add **gentle hover effects** on any interactive elements like buttons, perhaps a slight scale-up and color change.
+
+Ensure it's a **single Next.js component**. Provide the complete TypeScript code for the component. Explain the component's structure, how Framer Motion is used, and how to integrate it into a Next.js page. Suggest potential improvements for the component.
