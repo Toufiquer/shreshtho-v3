@@ -9,13 +9,17 @@
 import ContainerBox from '@/components/common/ContainerBox'
 import TopMenu from './components/TopMenu'
 import TopLogoSearchLogReg from './components/TopLogoSearchLogReg'
+import MainMenu from '@/components/common/MainMenu'
 
 const Page = () => {
   return (
-    <ContainerBox>
-      <TopMenu />
-      <TopLogoSearchLogReg />
-    </ContainerBox>
+    <div className="flex flex-col w-full">
+      <ContainerBox>
+        <TopMenu />
+        <TopLogoSearchLogReg />
+      </ContainerBox>
+      <MainMenu />
+    </div>
   )
 }
 export default Page
