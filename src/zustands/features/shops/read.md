@@ -8,7 +8,7 @@ Solution: If front-end you will design with the help of zustand and after final 
 <!-- @ ! RTK-query Hook example -->
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
-import {useGetDataQuery, useGetDataByIdQuery, useAddDataMutation, useUpdateDataMutation, useDeleteDataMutation, useBulkDeleteDataMutation, useBulkUpdateDataMutation} from "@/redux/features/data"
+import {useGetDataQuery, useGetDataByIdQuery, useCreateDataMutation, useUpdateDataMutation, useDeleteDataMutation, useBulkDeleteDataMutation, useBulkUpdateDataMutation} from "@/redux/features/data"
 
 <!-- ! 1. Query - get request -->
 <!-- //  with page and limit  -->
@@ -27,7 +27,7 @@ const { data: getResponseSingleData, refetch,isLoading, isError, error } = useGe
 
 <!-- // post  -->
 
-const [addData, { isLoading, isError, error, isSuccess }] = useAddDataMutation();
+const [addData, { isLoading, isError, error, isSuccess }] = useCreateDataMutation();
 
 <!-- // put  -->
 
@@ -53,7 +53,7 @@ const [bulkUpdateData, { isLoading, isError, error, isSuccess }] = useBulkUpdate
 <!-- @ ! zustand Hook example -->
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
-import {useGetDataQuery, useGetDataByIdQuery, useAddDataMutation, useUpdateDataMutation, useDeleteDataMutation, useBulkDeleteDataMutation, useBulkUpdateDataMutation} from "@/zustand/features/data"
+import {useGetDataQuery, useGetDataByIdQuery, useCreateDataMutation, useUpdateDataMutation, useDeleteDataMutation, useBulkDeleteDataMutation, useBulkUpdateDataMutation} from "@/zustand/features/data"
 
 <!-- ! 1. Query - get request -->
 <!-- //  with page and limit  -->
@@ -72,7 +72,7 @@ const { data: getResponseSingleData, refetch,isLoading, isError, error } = useGe
 
 <!-- // post  -->
 
-const [addData, { isLoading, isError, error, isSuccess }] = useAddDataMutation();
+const [addData, { isLoading, isError, error, isSuccess }] = useCreateDataMutation();
 
 <!-- // put  -->
 

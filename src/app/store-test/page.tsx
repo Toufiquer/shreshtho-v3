@@ -6,12 +6,15 @@
 |-----------------------------------------
 */
 
-import StoreManagementPage from './components/old/StoreManagementPage'
+import NewDemoPage from './components/new-demo/NewDemoPage'
+import ViewData from './components/new-demo/ViewData'
+// import StoreManagementPage from './components/old-demo/StoreManagementPage'
 
 const Page = () => {
   return (
     <main>
-      <StoreManagementPage />
+      {/* <StoreManagementPage /> */}
+      <NewDemoPage />
     </main>
   )
 }
