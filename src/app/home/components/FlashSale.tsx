@@ -12,28 +12,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-// Types
-interface Product {
-  id: number
-  name: string
-  price: number
-  imageUrl: string
-  discount?: number
-  tags?: string[]
-}
-
-interface SliderImage {
-  id: number
-  url: string
-}
-
-interface FlashSaleProps {
-  endDate: Date
-  products: Product[]
-  sliderImages: SliderImage[]
-  title?: string
-}
-
 // Utility function for countdown
 const calculateTimeLeft = (endDate: Date) => {
   const difference = +endDate - +new Date()
@@ -51,12 +29,54 @@ const calculateTimeLeft = (endDate: Date) => {
   return timeLeft
 }
 
-const FlashSale: React.FC<FlashSaleProps> = ({
-  endDate,
-  products,
-  sliderImages,
-  title = 'FLASH SALE',
-}) => {
+const FlashSale: React.FC = () => {
+  const title = 'FLASH SALE'
+  const sliderImages = [
+    { id: 1, url: '/slider/1.webp' },
+    { id: 2, url: '/slider/2.webp' },
+    { id: 3, url: '/slider/3.webp' },
+  ]
+  const products = [
+    {
+      id: 1,
+      name: 'Neutrogena Rapid Wrinkle Repair Moisturizer',
+      price: 1250.0,
+      imageUrl: '/slider/1.webp',
+      tags: ['ALPHA ARBUTIN', 'RADIANCE BOOSTER', 'PROTECTION'],
+    },
+    {
+      id: 2,
+      name: 'Vitamin C Face Serum',
+      price: 1499.0,
+      imageUrl: '/slider/1.webp',
+      tags: ['VITAMIN BOOSTER', 'ANTI-AGING', 'GLOW SKIN'],
+    },
+    {
+      id: 3,
+      name: 'Wireless Gaming Speakers',
+      price: 550.0,
+      imageUrl: '/slider/1.webp',
+    },
+    {
+      id: 4,
+      name: 'Over-Ear Headphones',
+      price: 800.0,
+      imageUrl: '/slider/1.webp',
+    },
+    {
+      id: 5,
+      name: "Men's Outdoor Jacket",
+      price: 3790.0,
+      imageUrl: '/slider/1.webp',
+    },
+    {
+      id: 6,
+      name: 'Hyaluronic Acid Serum',
+      price: 1050.0,
+      imageUrl: '/slider/1.webp',
+    },
+  ]
+  const endDate = new Date()
   // State for countdown
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(endDate))
 

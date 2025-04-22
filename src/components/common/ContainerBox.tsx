@@ -6,10 +6,10 @@
 |-----------------------------------------
 */
 const ContainerBox = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <div className="w-full flex items-center justify-center">
-            <div className="container mx-auto max-w-7xl">{children}</div>
-        </div>
-    )
+  return (
+    <div className="w-full flex items-center justify-center">
+      <div className="container mx-auto max-w-7xl">{children}</div>
+    </div>
+  )
 }
 export default ContainerBox

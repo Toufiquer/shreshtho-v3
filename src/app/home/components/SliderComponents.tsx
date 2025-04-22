@@ -4,28 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
-interface SlideImage {
-  id: number
-  url: string
-}
-
-interface SliderComponentsProps {
-  images: SlideImage[]
-  autoplaySpeed?: number
-  heading?: string
-  subheading?: string
-}
-
-const SliderComponents: React.FC<SliderComponentsProps> = ({
-  images,
-  autoplaySpeed = 5000,
-}) => {
+const SliderComponents: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
-
+  const autoplaySpeed = 5000
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 })
+
+  const images = [
+    { id: 1, url: '/slider/1.webp' },
+    { id: 2, url: '/slider/2.webp' },
+    { id: 3, url: '/slider/3.webp' },
+  ]
 
   // Function to go to the next slide
   const goToNext = () => {
