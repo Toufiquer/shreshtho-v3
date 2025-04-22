@@ -227,7 +227,7 @@ const LoginPage = () => {
               //   },
             ].map((social, index) => (
               <motion.button
-                key={social.name}
+                key={social.name + index}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className={`${social.color} text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md`}
@@ -241,7 +241,7 @@ const LoginPage = () => {
 
         <motion.div variants={itemVariants} className="mt-8 text-center">
           <p className="text-gray-600">
-            Don't have an account?{' '}
+            Don`&apos;`t have an account?{' '}
             <Link
               href="/registration"
               className="text-red-600 font-medium hover:underline"

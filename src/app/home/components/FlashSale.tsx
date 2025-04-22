@@ -214,7 +214,7 @@ const FlashSale: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-0 border-l border-gray-200">
             {products.map((product, index) => (
               <motion.div
-                key={product.id}
+                key={product.id + index}
                 className="border-r border-b border-gray-200 p-4 hover:shadow-lg transition-shadow duration-300 relative"
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}

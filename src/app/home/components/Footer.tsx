@@ -23,10 +23,10 @@ const Footer: React.FC = () => {
                     />
                   </Link>
                   <p className="text-sm leading-relaxed max-w-2xl">
-                    Shreshtho.com is Bangladesh's largest online shop for
-                    Fashion, Cosmetics, Jewellery, Grocery &amp; Food, Sports
-                    &amp; Fitness, Home Appliances, Electronics, Mobile Phones
-                    &amp; much more.!!
+                    Shreshtho.com is Bangladesh`&apos;`s largest online shop
+                    for Fashion, Cosmetics, Jewellery, Grocery &amp; Food,
+                    Sports &amp; Fitness, Home Appliances, Electronics, Mobile
+                    Phones &amp; much more.!!
                   </p>
                 </div>
 

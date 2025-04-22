@@ -1,7 +1,5 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import ContainerBox from '@/components/common/ContainerBox'
 
 const WebInfo: React.FC = () => {

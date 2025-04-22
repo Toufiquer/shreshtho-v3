@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 
 interface DealImage {
   id: number
@@ -27,8 +26,7 @@ const TodaysDeals: React.FC<TodaysDealsProps> = ({
   subtitle = 'Available for limited time in Active eCommerce CMS',
   slideDuration = 5000,
 }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const router = useRouter()
+  const [, setCurrentSlide] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {

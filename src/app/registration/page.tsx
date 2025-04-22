@@ -269,7 +269,7 @@ const RegisterPage: React.FC = () => {
                 //   },
               ].map((social, index) => (
                 <motion.button
-                  key={social.name}
+                  key={social.name + index}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className={`${social.color} text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md`}

@@ -54,7 +54,7 @@ const LogInSeller: React.FC = () => {
 
           <motion.div variants={itemVariants} className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              Don't have an Account?
+              Don`&apos;`t have an Account?
               <Link
                 href="/login"
                 className="text-blue-600 hover:text-blue-800 font-medium"

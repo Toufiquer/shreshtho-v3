@@ -2,15 +2,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { useMediaQuery } from 'react-responsive'
 
 const SliderComponents: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
   const autoplaySpeed = 5000
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 })
 
   const images = [
     { id: 1, url: '/slider/1.webp' },
@@ -34,7 +31,7 @@ const SliderComponents: React.FC = () => {
         clearInterval(timerRef.current)
       }
     }
-  }, [isHovering, autoplaySpeed, images.length])
+  }, [isHovering, autoplaySpeed, images.length, goToNext])
 
   // Handle manual navigation
   const goToSlide = (index: number) => {
