@@ -11,6 +11,8 @@ const TopMenu = () => {
   const urls = [
     { id: 1, name: 'Become a Seller !', url: '/become-to-seller' },
     { id: 2, name: 'Login to Seller', url: '/login-to-seller' },
+    { id: 3, name: 'Dashboard', url: '/dashboard' },
+    { id: 4, name: 'Sample Users', url: '/sample-users' },
   ]
   return (
     <main className="w-full flex items-center justify-end py-2 text-sm text-slate-400 gap-4 border-b">
