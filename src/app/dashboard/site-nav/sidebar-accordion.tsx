@@ -21,9 +21,9 @@ import { GoTriangleDown, GoTriangleRight } from 'react-icons/go'
 import { BiPieChartAlt } from 'react-icons/bi'
 import { Badge } from '@/components/ui/badge'
 import { LINKTYPE, SIDEBARTYPE } from './sidebar-data'
+import { useDashboardStore } from '../zustand-store/useDashboardStore'
 
 const SidebarAccordion = ({
-  children,
   data,
   className,
 }: {
@@ -32,16 +32,21 @@ const SidebarAccordion = ({
   className?: string | null
 }) => {
   const [toggle, setToggle] = useState(false)
+  const { setOutlet } = useDashboardStore()
   const {
     name,
+    outletName = '',
     icon,
-    isDropdown = true,
     isActive = false,
     content,
     link = '',
   } = data as SIDEBARTYPE
   const handleToggle = () => {
     setToggle(!toggle)
+  }
+  const setDashboardStore = (payload: string) => {
+    console.log('payload', payload)
+    setOutlet(payload)
   }
   return (
     <Accordion type="single" collapsible>
@@ -54,7 +59,10 @@ const SidebarAccordion = ({
           className="w-[248px] rounded-[.5rem] py-[.35rem] hover:bg-[#eff2f6] hover:no-underline pr-2"
         >
           <div className="w-full">
-            <div className="flex items-center justify-start gap-2 pl-4 text-[.8rem]">
+            <div
+              onClick={() => setDashboardStore(name)}
+              className="flex items-center justify-start gap-2 pl-4 text-[.8rem] cursor-pointer"
+            >
               <span className="flex">
                 <span
                   className={`${content.length > 0 ? 'visible' : 'invisible'}`}
@@ -86,6 +94,7 @@ const SidebarAccordion = ({
                   <Link
                     key={curr.id || index}
                     href={`${curr.link}`}
+                    onClick={() => setDashboardStore(curr.outletName || '')}
                     className="flex items-center justify-start gap-2 rounded py-[.35rem] pl-[53px] hover:bg-[#eff2f6] hover:text-[#3874ff]"
                   >
                     <span className="flex items-center gap-2">

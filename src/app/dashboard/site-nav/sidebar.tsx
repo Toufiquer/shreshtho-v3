@@ -5,35 +5,33 @@
 | @copyright: Toufiquer, May, 2024
 |-----------------------------------------
 */
-import SidebarAccordion from "./sidebar-accordion";
+import SidebarAccordion from './sidebar-accordion'
 import {
-  sidebarDataHome,
-  sidebarDataECommerce,
-  sidebarDataCRM,
-  sidebarDataProjectManagement,
-  sidebarDataProjectChat,
-  sidebarDataProjectEmail,
-  sidebarDataProjectEvents,
-  sidebarDataProjectKanban,
-  sidebarDataProjectSocial,
-  sidebarDataProjectCalendar,
-  sidebarDataProjectStarter,
-  sidebarDataProjectFaq,
-  sidebarDataProjectLoading,
-} from "./sidebar-data";
+  sidebarDataBlogs,
+  sidebarDataCategory,
+  sidebarDataBackup,
+  sidebarDataFiles,
+  sidebarDataMarketing,
+  sidebarDataOrders,
+  sidebarDataPickupPoints,
+  sidebarDataProducts,
+  sidebarDataShops,
+  sidebarDataSupport,
+  sidebarDataUsers,
+} from './sidebar-data'
 
-import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
-import SidebarHoverItem from "./sidebar-hover-item";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { CgArrowLongLeft, CgArrowLongRight } from 'react-icons/cg'
+import SidebarHoverItem from './sidebar-hover-item'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 const Sidebar = ({
   toggle,
   handleToggle,
   toggleButton = false,
 }: {
-  toggleButton?: boolean;
-  toggle: boolean;
-  handleToggle: () => void;
+  toggleButton?: boolean
+  toggle: boolean
+  handleToggle: () => void
 }) => {
   return (
     <div className="h-screen relative">
@@ -41,40 +39,38 @@ const Sidebar = ({
         <ScrollArea className="h-[calc(100vh_-_122px)]">
           {toggle ? (
             <div className="ml-3">
-              <SidebarAccordion data={sidebarDataHome} className="pt-4" />
-              <h2 className="mb-2 mt-4 pl-4 text-[.8rem]">APPS</h2>
-              <SidebarAccordion data={sidebarDataECommerce} />
-              <SidebarAccordion data={sidebarDataCRM} />
-              <SidebarAccordion data={sidebarDataProjectManagement} />
-              <SidebarAccordion data={sidebarDataProjectChat} />
-              <SidebarAccordion data={sidebarDataProjectEmail} />
-              <SidebarAccordion data={sidebarDataProjectEvents} />
-              <SidebarAccordion data={sidebarDataProjectKanban} />
-              <SidebarAccordion data={sidebarDataProjectSocial} />
-              <SidebarAccordion data={sidebarDataProjectCalendar} />
-
-              <h2 className="mb-2 mt-4 pl-4 text-[.8rem]">PAGES</h2>
-              <SidebarAccordion data={sidebarDataProjectStarter} />
-              <SidebarAccordion data={sidebarDataProjectFaq} />
-              <SidebarAccordion data={sidebarDataProjectLoading} />
+              <h2 className="mb-2 mt-4 pl-4 text-[.8rem]">Dashboard</h2>
+              <div className="my-4 flex w-full justify-center border-t" />
+              <SidebarAccordion data={sidebarDataBlogs} />
+              <SidebarAccordion data={sidebarDataCategory} />
+              <SidebarAccordion data={sidebarDataFiles} />
+              <SidebarAccordion data={sidebarDataMarketing} />
+              <SidebarAccordion data={sidebarDataOrders} />
+              <SidebarAccordion data={sidebarDataPickupPoints} />
+              <SidebarAccordion data={sidebarDataProducts} />
+              <SidebarAccordion data={sidebarDataShops} />
+              <SidebarAccordion data={sidebarDataSupport} />
+              <SidebarAccordion data={sidebarDataUsers} />
+              <div className="my-4 flex w-full justify-center border-t" />
+              <SidebarAccordion data={sidebarDataBackup} className="pt-4" />
             </div>
           ) : (
             <div className="flex flex-col p-2">
-              <div className="h-4" />
-              <SidebarHoverItem data={sidebarDataHome} />
+              <h2 className="mb-2 mt-4 pl-4 text-[.6rem]">Dashboard</h2>
               <div className="my-4 flex w-full justify-center border-t" />
-              <SidebarHoverItem data={sidebarDataECommerce} />
-              <SidebarHoverItem data={sidebarDataCRM} />
-              <SidebarHoverItem data={sidebarDataProjectManagement} />
-              <SidebarHoverItem data={sidebarDataProjectChat} />
-              <SidebarHoverItem data={sidebarDataProjectEmail} />
-              <SidebarHoverItem data={sidebarDataProjectEvents} />
-              <SidebarHoverItem data={sidebarDataProjectKanban} />
-              <SidebarHoverItem data={sidebarDataProjectSocial} />
-              <SidebarHoverItem data={sidebarDataProjectCalendar} />
-              <SidebarHoverItem data={sidebarDataProjectStarter} />
-              <SidebarHoverItem data={sidebarDataProjectFaq} />
-              <SidebarHoverItem data={sidebarDataProjectLoading} />
+              <SidebarAccordion data={sidebarDataBlogs} />
+              <SidebarAccordion data={sidebarDataCategory} />
+              <SidebarAccordion data={sidebarDataFiles} />
+              <SidebarAccordion data={sidebarDataMarketing} />
+              <SidebarAccordion data={sidebarDataOrders} />
+              <SidebarAccordion data={sidebarDataPickupPoints} />
+              <SidebarAccordion data={sidebarDataProducts} />
+              <SidebarAccordion data={sidebarDataShops} />
+              <SidebarAccordion data={sidebarDataSupport} />
+              <SidebarAccordion data={sidebarDataUsers} />
+              <div className="h-4" />
+              <div className="my-4 flex w-full justify-center border-t" />
+              <SidebarHoverItem data={sidebarDataBackup} />
               <div className="h-16" />
             </div>
           )}
@@ -110,6 +106,6 @@ const Sidebar = ({
         )}
       </div>
     </div>
-  );
-};
-export default Sidebar;
+  )
+}
+export default Sidebar
