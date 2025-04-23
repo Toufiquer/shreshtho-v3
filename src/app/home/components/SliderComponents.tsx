@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
@@ -15,11 +15,14 @@ const SliderComponents: React.FC = () => {
     { id: 3, url: '/slider/3.webp' },
   ]
 
+  // // Function to go to the next slide
+  // const goToNext = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+  // }
   // Function to go to the next slide
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
-
+  }, [images.length])
   // Setup autoplay
   useEffect(() => {
     if (!isHovering) {
