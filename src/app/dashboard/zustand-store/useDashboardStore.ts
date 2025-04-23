@@ -7,5 +7,6 @@ type Store = {
 
 export const useDashboardStore = create<Store>()((set) => ({
   outlet: '',
-  setOutlet: (payload: string) => set((state) => ({ outlet: payload })),
+  setOutlet: (payload: string) =>
+    set((state) => ({ ...state, outlet: payload })),
 }))

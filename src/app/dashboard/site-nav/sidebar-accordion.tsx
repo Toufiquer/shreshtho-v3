@@ -35,7 +35,6 @@ const SidebarAccordion = ({
   const { setOutlet } = useDashboardStore()
   const {
     name,
-    outletName = '',
     icon,
     isActive = false,
     content,

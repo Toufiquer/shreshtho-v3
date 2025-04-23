@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 // TypeScript interface for component props
 interface ComingSoonPageProps {
@@ -101,6 +102,7 @@ export default function ComingSoonPage({
         setEmail('')
       }
     } catch (error) {
+      console.log('error : ', error)
       setSubmitResult({
         success: false,
         message: 'An error occurred. Please try again later.',
@@ -168,8 +170,19 @@ export default function ComingSoonPage({
       >
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
           {/* Logo */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <img src={logoUrl} alt="Logo" className="h-12" />
+          <motion.div
+            variants={itemVariants}
+            className="mb-6 w-full items-center justify-center flex"
+          >
+            <div className="relative w-[400px] h-[100px] border">
+              <Image
+                className="object-fit"
+                src={logoUrl}
+                fill
+                sizes="(max-width: 900px) 100vw"
+                alt="Stock Price Image"
+              />
+            </div>
           </motion.div>
 
           {/* Main heading */}

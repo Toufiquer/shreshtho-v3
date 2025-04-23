@@ -6,41 +6,38 @@
 |-----------------------------------------
 */
 
-"use client";
+'use client'
 
-import Link from "next/link";
-import { ReactNode } from "react";
-import { Badge } from "@/components/ui/badge";
-import { LINKTYPE } from "./sidebar-data";
-import { SIDEBARTYPE } from "./sidebar-data";
+import Link from 'next/link'
+import { ReactNode } from 'react'
+import { Badge } from '@/components/ui/badge'
+import { LINKTYPE } from './sidebar-data'
+import { SIDEBARTYPE } from './sidebar-data'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card";
+} from '@/components/ui/hover-card'
 
 const SidebarHoverItem = ({
-  children,
   data,
-  className,
 }: {
-  children?: ReactNode | null;
-  data?: ReactNode | null | SIDEBARTYPE;
-  className?: string | null;
+  children?: ReactNode | null
+  data?: ReactNode | null | SIDEBARTYPE
+  className?: string | null
 }) => {
   const {
     name,
     icon,
-    isDropdown = true,
     isActive = false,
     content,
-    link = "/",
-  } = data as SIDEBARTYPE;
+    link = '/',
+  } = data as SIDEBARTYPE
 
   const cardContent = (
     <>
-      <div className={`${content.length > 0 && "border-b"} min-py-2`}>
-        {link !== "" ? (
+      <div className={`${content.length > 0 && 'border-b'} min-py-2`}>
+        {link !== '' ? (
           <Link href={`${link}`}>
             <h2 className="w-full py-2 pl-4">{name}</h2>
           </Link>
@@ -59,7 +56,7 @@ const SidebarHoverItem = ({
                 className="flex items-center justify-start gap-2 rounded py-[.35rem] pl-[35px] hover:bg-[#eff2f6] hover:text-[#3874ff]"
               >
                 <span className="flex items-center gap-2">
-                  {curr.icon} {curr.name}{" "}
+                  {curr.icon} {curr.name}{' '}
                 </span>
                 {curr.badge && (
                   <Badge
@@ -70,12 +67,12 @@ const SidebarHoverItem = ({
                   </Badge>
                 )}
               </Link>
-            );
+            )
           })}
         </div>
       </div>
     </>
-  );
+  )
   return (
     <HoverCard>
       <HoverCardTrigger>
@@ -92,7 +89,7 @@ const SidebarHoverItem = ({
         {cardContent}
       </HoverCardContent>
     </HoverCard>
-  );
-};
-export default SidebarHoverItem;
-SidebarHoverItem.defaultProps = { children: "", data: "", className: "" };
+  )
+}
+export default SidebarHoverItem
+SidebarHoverItem.defaultProps = { children: '', data: '', className: '' }
