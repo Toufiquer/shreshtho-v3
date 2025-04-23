@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 interface DealImage {
   id: number
@@ -94,17 +93,6 @@ const TodaysDeals: React.FC<TodaysDealsProps> = ({
           >
             {subtitle}
           </motion.p>
-        </motion.div>
-
-        {/* Right Side with Dancing People Images */}
-        <motion.div className="flex justify-center" variants={fadeInUp}>
-          <Image
-            src="/public/dancer-left.png"
-            alt="Person with shopping bag"
-            width={200}
-            height={300}
-            className="hidden md:block"
-          />
         </motion.div>
       </div>
     </motion.div>
