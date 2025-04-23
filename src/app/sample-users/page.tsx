@@ -4,6 +4,9 @@
 import { useState, useEffect } from 'react'
 import { useAuthStore } from './useZustandAuth'
 import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import CheckAuth from './CheckAuth'
 
 interface User {
   name: string
@@ -86,8 +89,12 @@ export default function Home() {
           content="One-click login for testing and debugging"
         />
       </Head>
-
-      <h1 className="text-2xl font-bold mb-6">Debug Login Page</h1>
+      <div className="w-full flex items-center justify-start gap-4 mb-6">
+        <Link href="/" className="mr-4">
+          Home
+        </Link>
+        <h1 className="text-2xl font-bold">Debug Login Page</h1>
+      </div>
 
       {isClient && (
         <div className="mb-6 p-4 bg-gray-100 rounded-md">
