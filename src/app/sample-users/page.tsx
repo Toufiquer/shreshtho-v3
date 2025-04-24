@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { useAuthStore } from './useZustandAuth'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface User {
   name: string
@@ -20,6 +21,8 @@ interface UserGroup {
 export default function Home() {
   const { email, role, setAuth, clearAuth } = useAuthStore()
   const [isClient, setIsClient] = useState(false)
+
+  const router = useRouter()
 
   useEffect(() => {
     setIsClient(true)
@@ -76,6 +79,7 @@ export default function Home() {
       token: `mock-token-for-${user.role}-${Date.now()}`,
       signBy: 'debug-login',
     })
+    router.push('/dashboard')
   }
 
   return (
@@ -90,6 +94,9 @@ export default function Home() {
       <div className="w-full flex items-center justify-start gap-4 mb-6">
         <Link href="/" className="mr-4">
           Home
+        </Link>
+        <Link href="/dashboard" className="mr-4">
+          Dashboard
         </Link>
         <h1 className="text-2xl font-bold">Debug Login Page</h1>
       </div>
