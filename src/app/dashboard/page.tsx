@@ -8,28 +8,15 @@
 
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { useAuthStore } from '../sample-users/useZustandAuth'
 import SiteNavLayoutResizable from './site-nav-layout-resizable'
 import TopBar from './TopBar'
-import { useEffect, useState } from 'react'
 
 const Page = () => {
-  const { email } = useAuthStore()
-  const router = useRouter()
-  const [isLoaded, setIsLoaded] = useState(true)
-  useEffect(() => {
-    email && setIsLoaded(false)
-  }, [])
-  if (isLoaded) {
-    return (
-      <main>
-        <TopBar />
-        <SiteNavLayoutResizable />
-      </main>
-    )
-  } else {
-    router.push('/sample-users')
-  }
+  return (
+    <main>
+      <TopBar />
+      <SiteNavLayoutResizable />
+    </main>
+  )
 }
 export default Page

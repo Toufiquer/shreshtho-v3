@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 import { useAuthStore } from './useZustandAuth'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import CheckAuth from './CheckAuth'
 
 interface User {
   name: string
